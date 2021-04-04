@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<h1>
+    Password Genarator
+</h1>
+
+<form action="{% url 'password' %}"> 
+    <select name="length">
+        <option value="12" selected>12</option>
+        {% for key,value in length_choices.items %}
+            <option value="{{key}}" > {{ value }} </option>
+        {% endfor %}
+    </select> length
+    <br>
+    <input type="checkbox" name="uppercase"> Uppercase
+    <br>
+    <input type="checkbox" name="Numbers"> Numbers
+    <br>
+    <input type="checkbox" name="special_numbers"> Special Numbers
+    <br>
+    <input type="submit" value="Generate" class="btn btn-primary">
+    <a href="{% url 'index' %}" class="btn btn-warning"> Home </a>
+    <a href="{% url 'about' %}" class="btn btn-warning"> About </a>
+
+</form>
+
+{% endblock %}
